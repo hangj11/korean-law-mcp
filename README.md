@@ -1,16 +1,20 @@
-# Korean Law MCP
+# Korean Law MCP + Web Chatbot
 
-**법제처 39개 API를 14개 도구로.** 법령, 판례, 행정규칙, 자치법규, 조약, 해석례를 AI 어시스턴트나 터미널에서 바로 사용.
+**법제처 39개 API를 14개 도구로.** 법령, 판례, 행정규칙, 자치법규, 조약, 해석례를 AI 어시스턴트나 터미널, 웹 채팅에서 바로 사용.
 
 [![npm version](https://img.shields.io/npm/v/korean-law-mcp.svg)](https://www.npmjs.com/package/korean-law-mcp)
 [![MCP 1.27](https://img.shields.io/badge/MCP-1.27-blue)](https://modelcontextprotocol.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-> 법제처 Open API 기반 MCP 서버 + CLI. Claude Desktop, Cursor, Windsurf, Zed, Claude.ai 등에서 바로 사용 가능.
+> 법제처 Open API 기반 MCP 서버 + CLI + Next.js 웹 채팅 앱. Claude Desktop, Cursor, Windsurf, Zed, Claude.ai, 웹 브라우저에서 바로 사용 가능.
 
 [English](./README-EN.md)
 
 ![Korean Law MCP 데모](./demo.gif)
+
+## 🚀 새로운 웹 채팅 인터페이스
+
+이제 웹 브라우저에서 한국 법률 어시스턴트를 사용할 수 있습니다! MCP 서버와 연동된 Next.js 기반 웹 앱으로, 실시간 스트리밍 응답과 도구 디버깅 기능을 지원합니다.
 
 ---
 
@@ -72,6 +76,56 @@ MCP 도구 설계에서 **도구 수 ≠ 기능 수**입니다.
 **v1.8~1.9** — 체인 도구 8개, 일괄 조문 조회, AI 검색 필터, 구조화 에러 포맷.
 
 </details>
+
+---
+
+## 🌐 웹 채팅 앱 (NEW!)
+
+웹 브라우저에서 한국 법률 어시스턴트를 사용할 수 있습니다.
+
+### 설치 및 실행
+
+#### 전제 조건
+- Node.js 20+
+- MCP 서버 실행 (포트 3001)
+- OpenAI API 키
+
+#### 빠른 시작
+
+```bash
+# 1. MCP 서버 시작 (다른 터미널에서)
+npm run dev:mcp
+
+# 2. 환경 변수 설정
+cp .env.example .env.local
+# .env.local을 편집하여 OPENAI_API_KEY 입력
+
+# 3. 웹 앱 시작
+npm run dev
+
+# http://localhost:3000에서 접속
+```
+
+또는 동시에 실행:
+```bash
+npm run dev:all
+```
+
+### 기능
+
+- **실시간 스트리밍**: OpenAI GPT-4o-mini로 법률 정보 제공
+- **MCP 도구 통합**: 14개 도구를 자동으로 활용하여 정확한 답변
+- **마크다운 렌더링**: 법률 문서를 아름답게 표시
+- **도구 디버깅 패널**: MCP 도구 호출 내역 확인
+- **한영 이중언어**: 한국어/영어 지원
+
+### 환경 변수
+
+| 변수 | 필수 | 설명 |
+|------|------|------|
+| `KOREAN_LAW_MCP_URL` | 예 | MCP 서버 URL (기본값: `http://localhost:3001`) |
+| `OPENAI_API_KEY` | 예 | OpenAI API 키 |
+| `OPENAI_MODEL` | 아니오 | 모델명 (기본값: `gpt-4o-mini`) |
 
 ---
 

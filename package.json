@@ -2,6 +2,7 @@
   "name": "korean-law-mcp",
   "version": "3.0.0",
   "description": "법제처 39개 API → 14개 MCP 도구. 법령·판례·조례·조약을 AI로 검색·조회·분석",
+  "private": true,
   "type": "module",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -33,6 +34,11 @@
     "start": "node build/index.js",
     "start:sse": "node build/index.js --mode sse --port 3000",
     "cli": "node build/cli.js",
+    "dev": "next dev",
+    "dev:mcp": "node build/index.js",
+    "dev:all": "concurrently \"npm run dev:mcp\" \"npm run dev\"",
+    "build:web": "next build",
+    "start:web": "next start",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
@@ -58,12 +64,28 @@
     "kordoc": "^2.1.0",
     "pdfjs-dist": "^5.5.207",
     "zod": "^3.25.76 || ^4.0.0",
-    "zod-to-json-schema": "^3.25.1"
+    "zod-to-json-schema": "^3.25.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "next": "^16.0.0",
+    "ai": "^6.0.0",
+    "@ai-sdk/react": "^3.0.0",
+    "markdown-it": "^13.0.1",
+    "markdown-it-highlightjs": "^4.0.1",
+    "highlight.js": "^11.9.0",
+    "lucide-react": "^0.263.1",
+    "tailwindcss": "^3.3.0",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.24"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^22.19.3",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "@types/markdown-it": "^13.0.5",
+    "concurrently": "^9.0.0"
   },
   "files": [
     "build",
@@ -72,7 +94,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chrisryugj/korean-law-mcp.git"
+    "url": "git+https://github.com/hangj11/korean-law-mcp.git"
   },
   "engines": {
     "node": ">=20.19.0"
