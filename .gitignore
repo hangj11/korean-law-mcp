@@ -8,3 +8,32 @@ dist/
 test-*.js
 .mcp.json
 .claude/settings.local.json
+
+# Next.js
+.next/
+out/
+.nextjs/
+.next.build/
+
+# Production
+/build
+/dist
+
+# Testing
+/coverage
+
+# Misc
+*.pem
+.vscode
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+Thumbs.db
+
+# Package manager
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
